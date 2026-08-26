@@ -1,0 +1,23 @@
+# Competition data and generated artifacts
+train/
+test/
+*.zarr/
+*.geff/
+submission.csv
+data/
+artifacts/
+checkpoints/
+outputs/
+research/kaggle_runs/*/output/
+
+# Python and notebooks
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Local tooling
+.DS_Store
+.idea/
+.vscode/
