@@ -1,6 +1,6 @@
 # Public frontier audit
 
-Last updated: 2026-08-26
+Last updated: 2026-08-27
 
 ## Sources reviewed
 
@@ -17,7 +17,7 @@ The 0.927 notebook retains the same primary/secondary model family, detector thr
 - run the learned edge predictor in forward and reverse temporal directions;
 - align reverse logits to the forward distribution;
 - combine forward and reverse probabilities with a weighted harmonic construction;
-- use bidirectional weight `0.30`;
+- use bidirectional weight `0.25` in the current 0.927 version;
 - penalize links lacking mutual temporal support.
 
 Other changes are confounded with this comparison:
@@ -29,6 +29,10 @@ Other changes are confounded with this comparison:
 - gap-close radius is `5.8` micrometres.
 
 Because several mechanisms changed together, the public `+0.001` cannot be attributed solely to harmonic association without local ablations.
+
+## Team transfer result
+
+The exact public notebook labeled `0.927 LB` scored **0.924** when submitted by the team after the reset (submission `55796675`, 2026-08-26). This is 0.002 below the frozen team baseline. Public notebook titles and their authors' scores are therefore treated as leads, not reproducible results; promotion requires a team-owned paired run.
 
 ## Validator warning
 
