@@ -16,6 +16,8 @@ Build a reproducible 3D+t cell detection and lineage-tracking pipeline that exce
 
 ## Repository map
 
+- `research_members/`: member-owned notebooks, experiment implementations, and working notes.
+- `research_members/naveen/`: Naveen's reproducible Kaggle notebooks and active experiment configurations.
 - `docs/competition_notes.md`: metric, dataset, and forum findings.
 - `docs/baseline_0926_audit.md`: reproducibility and architecture audit of the post-reset baseline.
 - `docs/public_frontier_audit.md`: comparison against legitimate post-reset public frontier notebooks.
@@ -23,4 +25,6 @@ Build a reproducible 3D+t cell detection and lineage-tracking pipeline that exce
 - `experiments/README.md`: experiment protocol and naming.
 - `experiments/ledger.csv`: shared result ledger.
 
-The post-reset 0.926 notebooks are present. Their three Kaggle model/support artifacts and an embryo-disjoint local validation subset are still required before model-level experiments can begin.
+Shared conclusions belong in `docs/`, and every run belongs in the shared ledger. Member folders contain implementation artifacts and working material; they are not separate sources of truth for scores.
+
+Use short-lived task branches such as `experiment/E0008-velocity-gating`, open a pull request into `research/0.95-roadmap`, and promote reviewed milestones to `main`. Avoid permanent per-member branches.

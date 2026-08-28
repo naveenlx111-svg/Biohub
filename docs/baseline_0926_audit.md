@@ -4,8 +4,8 @@ Audited: 2026-08-26
 
 ## Inputs
 
-- `0-926-biohub-divsub.ipynb`
-- `biohub-harness-0926-probe.ipynb`
+- `research_members/naveen/notebooks/0-926-biohub-divsub.ipynb`
+- `research_members/naveen/notebooks/biohub-harness-0926-probe.ipynb`
 
 Both notebooks scored 0.926 on the post-reset public leaderboard.
 
