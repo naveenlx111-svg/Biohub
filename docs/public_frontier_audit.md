@@ -34,6 +34,8 @@ Because several mechanisms changed together, the public `+0.001` cannot be attri
 
 The exact public notebook labeled `0.927 LB` scored **0.924** when submitted by the team after the reset (submission `55796675`, 2026-08-26). This is 0.002 below the frozen team baseline. Public notebook titles and their authors' scores are therefore treated as leads, not reproducible results; promotion requires a team-owned paired run.
 
+A later submission of `biohub-sdw60` version 1 scored **0.927** for the team (submission `55823404`, 2026-08-27). This is the best verified post-reset team score and replaces 0.926 as the leaderboard anchor. SDW60 uses harmonic bidirectional weight 0.30 and includes the wider safe-division configuration, so the leaderboard gain must not be attributed to a single mechanism.
+
 ## Validator warning
 
 The notebook describes its validator as official, but its division implementation is the obsolete connected-component formulation. It traverses complete daughter descendants and asks whether both lineages and a fork share a weakly connected component.

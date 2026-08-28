@@ -1,5 +1,7 @@
 # Roadmap to 0.95+
 
+Current verified post-reset anchor: **0.927**, submission `55823404` from `biohub-sdw60` version 1 on 2026-08-27.
+
 ## Phase 0: establish a trustworthy baseline
 
 1. Import the exact 0.926 Kaggle notebook, model artifacts, logs, and submission summary.
