@@ -1,0 +1,15 @@
+{
+  "id": "naveenlx111249971939/biohub-e0028-embryo-heldout-fork-ranker",
+  "title": "Biohub E0028 Embryo Heldout Fork Ranker",
+  "code_file": "e0028-embryo-heldout-fork-ranker.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "naveenlx111249971939/biohub-e0027-wide-fork-candidate-audit"
+  ]
+}

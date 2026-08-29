@@ -9,6 +9,7 @@ artifacts/
 checkpoints/
 outputs/
 research/kaggle_runs/*/output*/
+research/kaggle_outputs/
 research/public_notebooks/
 
 # Python and notebooks
