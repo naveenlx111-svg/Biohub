@@ -1,13 +1,45 @@
-# E0029: parent-event image and temporal evidence on E0028 top-pair proposals.
+# Same-run parent-event image and temporal evidence on held-out top-pair proposals.
 from sklearn.ensemble import HistGradientBoostingClassifier as _ParentHGB
 from sklearn.metrics import average_precision_score as _parent_ap, roc_auc_score as _parent_auc
 import zarr
 
-_ranked_paths = sorted(Path("/kaggle/input").rglob("fork_candidates_oof_ranked.csv"))
-if not _ranked_paths:
-    raise FileNotFoundError("Attach the E0028 kernel output")
-_ranked_path = next((p for p in _ranked_paths if "e0028" in str(p).lower()), _ranked_paths[0])
-_ranked = pd.read_csv(_ranked_path)
+_pair_features = [
+    "d1_um", "d2_um", "distance_sum_um", "distance_asymmetry_um",
+    "sister_um", "midpoint_um", "daughter_cosine", "fork_outdegree",
+    "daughter1_indegree", "daughter2_indegree", "edge1_exists", "edge2_exists",
+]
+_ranked = _candidate_df.copy()
+_ranked["candidate_index"] = np.arange(len(_ranked), dtype=np.int64)
+_ranked = _ranked[
+    (_ranked["distance_sum_um"] <= 14.0)
+    & (_ranked["sister_um"] >= 4.0)
+    & (_ranked["midpoint_um"] <= 5.0)
+    & (_ranked["daughter_cosine"] <= -0.30)
+].copy()
+if int(_ranked["label"].sum()) != int(_candidate_df["label"].sum()):
+    raise RuntimeError("Same-run hard-negative gate discarded a positive")
+
+_pair_oof_parts = []
+for _heldout in sorted(_ranked["embryo"].unique()):
+    _pair_train = _ranked[_ranked["embryo"] != _heldout].copy()
+    _pair_test = _ranked[_ranked["embryo"] == _heldout].copy()
+    _pair_pos = int(_pair_train["label"].sum())
+    _pair_neg = len(_pair_train)-_pair_pos
+    _pair_weights = np.ones(len(_pair_train), dtype=float)
+    _pair_weights[_pair_train["label"].to_numpy() == 1] = _pair_neg/max(_pair_pos, 1)
+    _pair_model = _ParentHGB(
+        learning_rate=0.05, max_iter=250, max_leaf_nodes=15,
+        min_samples_leaf=20, l2_regularization=2.0, random_state=20260830,
+    )
+    _pair_model.fit(
+        _pair_train[_pair_features], _pair_train["label"], sample_weight=_pair_weights
+    )
+    _pair_test["score"] = _pair_model.predict_proba(_pair_test[_pair_features])[:, 1]
+    _pair_test["rank_within_fork"] = _pair_test.groupby(["stem", "fork_id"])["score"].rank(
+        method="first", ascending=False
+    )
+    _pair_oof_parts.append(_pair_test)
+_ranked = pd.concat(_pair_oof_parts, ignore_index=True)
 _parents = _ranked[_ranked["rank_within_fork"] == 1].copy()
 _parents = _parents.sort_values(["stem", "t", "fork_id"]).reset_index(drop=True)
 print("Parent-event candidates:", len(_parents), "positives:", int(_parents["label"].sum()))
@@ -37,7 +69,28 @@ _image_rows = []
 _parent_event_original_test_dir = TEST_DIR
 TEST_DIR = TRAIN_DIR
 for _stem, _stem_rows in _parents.groupby("stem", sort=True):
-    _nodes, _ = official_graph_inputs[_stem]
+    _feature_graph = _official_graph_from_processed(*official_graph_inputs[_stem])
+    _nodes = {
+        int(r[td.DEFAULT_ATTR_KEYS.NODE_ID]): r
+        for r in _feature_graph.node_attrs().iter_rows(named=True)
+    }
+    _feature_incoming, _feature_outgoing = {}, {}
+    for _edge_row in _feature_graph.edge_attrs().iter_rows(named=True):
+        _es = int(_edge_row[td.DEFAULT_ATTR_KEYS.EDGE_SOURCE])
+        _et = int(_edge_row[td.DEFAULT_ATTR_KEYS.EDGE_TARGET])
+        _feature_outgoing.setdefault(_es, set()).add(_et)
+        _feature_incoming.setdefault(_et, set()).add(_es)
+
+    def _chain_span(_start, _adjacency, _limit=12):
+        _span, _current, _seen = 0, int(_start), {int(_start)}
+        while _span < _limit:
+            _next = list(_adjacency.get(_current, ()))
+            if len(_next) != 1 or _next[0] in _seen:
+                break
+            _current = int(_next[0])
+            _seen.add(_current)
+            _span += 1
+        return _span
     _array = zarr.open(TRAIN_DIR / f"{_stem}.zarr" / "0", mode="r")
     _frame_cache = {}
     _heatmap_cache = {}
@@ -63,6 +116,15 @@ for _stem, _stem_rows in _parents.groupby("stem", sort=True):
         _d2p = tuple(float(_nodes[_d2][k]) for k in ("z", "y", "x"))
         _d1stats = _patch_stats(_frame_cache[_t+1], _d1p)
         _d2stats = _patch_stats(_frame_cache[_t+1], _d2p)
+        _parent_history = _chain_span(_fork, _feature_incoming)
+        _d1_future = _chain_span(_d1, _feature_outgoing)
+        _d2_future = _chain_span(_d2, _feature_outgoing)
+        _predecessors = list(_feature_incoming.get(_fork, ()))
+        _parent_speed = 0.0
+        if len(_predecessors) == 1 and _predecessors[0] in _nodes:
+            _prev_row = _nodes[_predecessors[0]]
+            _prev_pos = np.asarray([_prev_row[k] for k in ("z", "y", "x")], dtype=float)
+            _parent_speed = float(np.linalg.norm((np.asarray(_p)-_prev_pos)*np.asarray(VOXEL_SCALE_UM)))
         _dc = deepcenter_score_point(
             _stem, _t, _p, globals().get("DEEPCENTER_VETO_DETECTOR"),
             _dc_frame_cache, _heatmap_cache,
@@ -80,6 +142,11 @@ for _stem, _stem_rows in _parents.groupby("stem", sort=True):
             "daughter_mean_asymmetry": abs(_d1stats[0]-_d2stats[0]),
             "parent_minus_daughters": _pstats[0]-(_d1stats[0]+_d2stats[0])/2.0,
             "deepcenter_score": float(_dc) if _dc is not None else -1.0,
+            "parent_history_span": _parent_history,
+            "daughter_future_min": min(_d1_future, _d2_future),
+            "daughter_future_max": max(_d1_future, _d2_future),
+            "daughter_future_asymmetry": abs(_d1_future-_d2_future),
+            "parent_speed_um": _parent_speed,
         })
 TEST_DIR = _parent_event_original_test_dir
 
