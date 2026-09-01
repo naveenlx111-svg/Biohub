@@ -18,6 +18,7 @@ Build a reproducible 3D+t cell detection and lineage-tracking pipeline that exce
 
 - `research_members/`: member-owned notebooks, experiment implementations, and working notes.
 - `research_members/naveen/`: Naveen's reproducible Kaggle notebooks and active experiment configurations.
+- `research/theory/`: shared theoretical formulations, literature foundations, and mathematical modeling.
 - `docs/competition_notes.md`: metric, dataset, and forum findings.
 - `docs/baseline_0926_audit.md`: reproducibility and architecture audit of the post-reset baseline.
 - `docs/public_frontier_audit.md`: comparison against legitimate post-reset public frontier notebooks.
