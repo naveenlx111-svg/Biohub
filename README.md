@@ -28,4 +28,4 @@ Build a reproducible 3D+t cell detection and lineage-tracking pipeline that exce
 
 Shared conclusions belong in `docs/`, and every run belongs in the shared ledger. Member folders contain implementation artifacts and working material; they are not separate sources of truth for scores.
 
-Use short-lived task branches such as `experiment/E0008-velocity-gating`, open a pull request into `research/0.95-roadmap`, and promote reviewed milestones to `main`. Avoid permanent per-member branches.
+Use member folders for ownership and short-lived task branches when concurrent edits require isolation. Merge reviewed work into `main`; avoid permanent per-member branches.

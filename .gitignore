@@ -18,6 +18,7 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 venv/
+local_runs/
 
 # Local tooling
 .DS_Store

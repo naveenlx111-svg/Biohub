@@ -1,12 +1,35 @@
-# Kaggle discussion audit: August 19–29, 2026
+# Kaggle discussion audit: August 19–31, 2026
 
 ## Scope and method
 
-The authenticated Kaggle competition forum was enumerated across all 80 available topics, not only the first discussion page. Every topic was inspected for either a creation date or reply date from 2026-08-19 through 2026-08-29 Asia/Kolkata time.
+The authenticated Kaggle competition forum was enumerated across all 80 available topics, not only the first discussion page. Every topic was inspected for either a creation date or reply date from 2026-08-19 through 2026-08-29 Asia/Kolkata time, followed by a complete new-topic and reply delta through August 31.
 
-The resulting audit covers 14 active threads, including all eight threads created during the window and six older threads revived by new replies. Their 64 available comments were read in full; 32 were posted during the window. Kaggle's topic API exposes the title, author, date, votes, and all replies, but omits a separate main-post body. Consequently, zero-reply threads are represented by their titles and metadata only. Empty comments returned by Kaggle are noted but carry no evidence.
+The original August 19–29 audit covers 14 active threads, including all eight threads created during that window and six older threads revived by new replies. Their 64 available comments were read in full; 32 were posted during that window. An authenticated API delta on August 31 added all three topics created on August 30–31 and read both available replies in full. Kaggle's topic API exposes the title, author, date, votes, and all replies, but omits a separate main-post body. Consequently, zero-reply threads are represented by their titles and metadata only. Empty comments returned by Kaggle are noted but carry no evidence.
 
 Forum statements are participant reports, not organizer-confirmed facts unless explicitly identified as such. Leaderboard and validation numbers are therefore treated as claims rather than ground truth.
+
+## August 30–31 delta
+
+### Dense segmentation and longer temporal windows are a plausible structural track
+
+The new [Focus3D discussion](https://www.kaggle.com/competitions/biohub-cell-tracking-during-development/discussion/738217) proposes a pipeline that is materially different from the public heatmap-detector stack:
+
+1. obtain dense instance labels with Focus3D;
+2. generate dense tracks with HOCT, ITEC, or Trackastra;
+3. use those tracks as additional training supervision; and
+4. track over windows of five or eight frames rather than only adjacent pairs.
+
+The author later links the Higher-Order Cell Tracking Transformer implementation and paper and shows qualitative nearest-track visualizations. No official-CV table, leaderboard ablation, runtime measurement, or reproducible competition notebook is supplied, so this is a research direction rather than verified score evidence.
+
+It is nevertheless strategically important. Dense pseudo-labels could address sparse-GT supervision, while a higher-order temporal model directly targets identity ambiguity and division context that pairwise Hungarian assignment cannot represent. This is a better candidate for closing a structural `0.018` leaderboard gap than additional tuning around the same detector/linker configuration. Its first gate should be a small embryo-held-out feasibility study measuring pseudo-track quality, division-window candidate recall, runtime, and memory before any full retraining commitment.
+
+### No disclosed detector answer above 0.94
+
+The new [detector architecture question](https://www.kaggle.com/competitions/biohub-cell-tracking-during-development/discussion/738276) asks whether teams above `0.94` still use a 3D UNet heatmap detector. It had no replies at audit time and therefore provides no evidence that a detector replacement is responsible for top scores.
+
+The new [training notebook question](https://www.kaggle.com/competitions/biohub-cell-tracking-during-development/discussion/738210) also had no replies. It confirms continued demand for a reproducible training recipe but contributes no technical result.
+
+The “what layer” thread contains eight API entries, but one is deleted and empty. Its latest substantive reply remains Tang's August 29 statement that most gains in their case came from model improvements; there was no new August 30–31 reply.
 
 ## High-value technical findings
 
@@ -135,6 +158,9 @@ The revived napari thread recommends interactive 3D/time visualization and tree 
 | [What is happening after submitting?](https://www.kaggle.com/competitions/biohub-cell-tracking-during-development/discussion/735307) | 1 recent reply | Long evaluation queue/runtime is common |
 | [Possible big leaderboard shakeup](https://www.kaggle.com/competitions/biohub-cell-tracking-during-development/discussion/735352) | 2 recent replies | Unverified graph plug-in claims; scratch training considered feasible |
 | [What is the best model for this domain so far?](https://www.kaggle.com/competitions/biohub-cell-tracking-during-development/discussion/734604) | 1 recent reply | Separate modeling from track optimization; public checkpoint near ceiling |
+| [Focus3D: one of the best 3D cell segmentation](https://www.kaggle.com/competitions/biohub-cell-tracking-during-development/discussion/738217) | New Aug 30; 2 replies | Dense instances, pseudo-tracks, and 5–8-frame higher-order tracking proposal |
+| [Detector above the 0.94 line](https://www.kaggle.com/competitions/biohub-cell-tracking-during-development/discussion/738276) | New Aug 31; 0 replies | Asks whether top teams replaced 3D UNet; no answer yet |
+| [Cannot find a training notebook](https://www.kaggle.com/competitions/biohub-cell-tracking-during-development/discussion/738210) | New Aug 30; 0 replies | No technical evidence supplied |
 
 ## Recommended changes to our roadmap
 
@@ -146,6 +172,7 @@ The revived napari thread recommends interactive 3D/time visualization and tree 
 6. Treat large undisclosed plug-in gains and unverified notebook scores as hypotheses until reproduced on the team account.
 7. Keep the patched official scorer and embryo-level complete-movie folds as mandatory promotion gates.
 8. Obtain organizer clarification before any hand-labeling effort.
+9. Scope a bounded Focus3D/HOCT or Trackastra feasibility experiment using embryo-held-out evaluation; measure dense pseudo-track quality and 5–8-frame division candidate recall before scaling it.
 
 ## Bottom line
 
