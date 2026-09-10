@@ -1,0 +1,57 @@
+{
+  "submission": "/kaggle/working/submission.csv",
+  "sha256": "f7752a96f6fae3c8aa258226b0148fee306bbfb3196c2c5f9b8435aa1b604a07",
+  "valid": true,
+  "datasets": [
+    {
+      "dataset": "44b6_0113de3b",
+      "shape": [
+        100,
+        64,
+        256,
+        256
+      ],
+      "nodes": 25636,
+      "edges": 24932,
+      "divisions": 91
+    },
+    {
+      "dataset": "44b6_0b24845f",
+      "shape": [
+        100,
+        64,
+        256,
+        256
+      ],
+      "nodes": 20754,
+      "edges": 19464,
+      "divisions": 15
+    },
+    {
+      "dataset": "6bba_05b6850b",
+      "shape": [
+        100,
+        64,
+        256,
+        256
+      ],
+      "nodes": 6150,
+      "edges": 5956,
+      "divisions": 9
+    },
+    {
+      "dataset": "6bba_05db0fb1",
+      "shape": [
+        100,
+        64,
+        256,
+        256
+      ],
+      "nodes": 70301,
+      "edges": 68212,
+      "divisions": 42
+    }
+  ],
+  "nodes": 122841,
+  "edges": 118564
+}

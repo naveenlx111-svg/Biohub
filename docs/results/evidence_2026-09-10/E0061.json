@@ -1,0 +1,43 @@
+[
+  {
+    "config": "frozen_tight55",
+    "n": 8,
+    "edge_jaccard": 0.9247329773030708,
+    "division_jaccard": 0.23076923076923078,
+    "division_tp": 3,
+    "division_fp": 1,
+    "division_fn": 9,
+    "node_recall": 0.9865993808078469,
+    "adj_edge_jaccard": 0.9293759098916603,
+    "n_adj": 8,
+    "score": 0.9524528329685834
+  },
+  {
+    "config": "frozen_tight55",
+    "embryo": "44b6",
+    "n": 4,
+    "edge_jaccard": 0.8976327575175944,
+    "division_jaccard": 0.2,
+    "division_tp": 1,
+    "division_fp": 1,
+    "division_fn": 3,
+    "node_recall": 0.9939959175999785,
+    "adj_edge_jaccard": 0.9101700590608702,
+    "n_adj": 4,
+    "score": 0.9301700590608702
+  },
+  {
+    "config": "frozen_tight55",
+    "embryo": "6bba",
+    "n": 4,
+    "edge_jaccard": 0.9342966809663581,
+    "division_jaccard": 0.25,
+    "division_tp": 2,
+    "division_fp": 0,
+    "division_fn": 6,
+    "node_recall": 0.9792028440157154,
+    "adj_edge_jaccard": 0.9361536802345198,
+    "n_adj": 4,
+    "score": 0.9611536802345199
+  }
+]

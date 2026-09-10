@@ -1,0 +1,7 @@
+{
+  "parent": "E0065 cached OOF scores and graphs",
+  "hypothesis": "Biohub E0069 Temporal Repair Guards",
+  "compute": "Kaggle only",
+  "validation": "Official baseline and top100 replay; exploratory panel; no submission",
+  "frozen": "CNN scores; detector graphs; historical geometry gate; no test GT"
+}

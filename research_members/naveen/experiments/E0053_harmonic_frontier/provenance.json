@@ -1,0 +1,7 @@
+{
+  "source": "flexonafft/biohub-harmonic-fusion",
+  "download_date": "2026-09-09",
+  "source_sha256": "6e1f25c4db92ca05084a3cab39ff083d10c3f43a730581c141363301c0e985bb",
+  "changes": "Original executable cells preserved; appended hash-verified official scorer audit.",
+  "validation": "Same eight diagnostic movies selected by public notebook; not independent detector OOF."
+}

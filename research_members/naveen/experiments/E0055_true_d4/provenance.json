@@ -1,0 +1,6 @@
+{
+  "parent": "E0053",
+  "hypothesis": "Recover the missing anti-diagonal reflection instead of duplicating horizontal flip.",
+  "change": "Exactly two forward and three inverse spatial transform expressions in materialized predictor.",
+  "validation": "CPU transform uniqueness and round-trip; eight-movie official diagnostic panel; public score pending."
+}

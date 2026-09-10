@@ -1,0 +1,29 @@
+{
+  "id": "naveenlx111249971939/biohub-e0067-division-repair-submission",
+  "title": "Biohub E0067 Division Repair Submission",
+  "code_file": "biohub-e0067-division-repair-submission.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [
+    "gpu"
+  ],
+  "dataset_sources": [
+    "pilkwang/biohub-deepcenter-unet3d-center-prior-v1",
+    "pilkwang/biohub-temporal-unet3d-seed314159-v1",
+    "pilkwang/biohub-tracking-support-pack-50ep-v1",
+    "dalloliogm/biohub-official-scorer-patched"
+  ],
+  "kernel_sources": [
+    "naveenlx111249971939/biohub-e0053-harmonic-frontier-audit",
+    "naveenlx111249971939/biohub-e0065-kaggle-division-ranker"
+  ],
+  "competition_sources": [
+    "biohub-cell-tracking-during-development"
+  ],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}

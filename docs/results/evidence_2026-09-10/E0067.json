@@ -1,0 +1,11 @@
+{
+  "diagnostic_score": 0.9499248688395877,
+  "threshold": 0.9999079704284668,
+  "budget": 70,
+  "test_candidates": 67228,
+  "selected": 70,
+  "applied": 55,
+  "public_score": null,
+  "baseline_public": 0.946,
+  "policy": "OOF score threshold plus candidate-density cap; no test GT"
+}

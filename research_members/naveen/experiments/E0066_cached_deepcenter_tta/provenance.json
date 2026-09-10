@@ -1,0 +1,12 @@
+{
+  "parent": "E0053 cached raw graphs / public 0.946",
+  "source": "sjlee101/biohub-lf-dctta; repair-gate function only",
+  "configs": [
+    "baseline_single_view",
+    "public_eight_view",
+    "true_d4_eight_view"
+  ],
+  "frozen": "Detector and edge inference; tight55; DeepCenter threshold 0.25",
+  "checks": "Exact official baseline counts; fresh per-call filter caches; official aggregate and embryo scores",
+  "compute": "Kaggle T4 only; diagnostic notebook; no submission"
+}

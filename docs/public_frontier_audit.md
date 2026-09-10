@@ -1,6 +1,7 @@
 # Public frontier audit
 
-Last updated: 2026-08-27
+Latest audit: [September 9 public notebooks and executions](results/FRONTIER_2026-09-09.md).
+The material below records the historical August 27 investigation.
 
 ## Sources reviewed
 

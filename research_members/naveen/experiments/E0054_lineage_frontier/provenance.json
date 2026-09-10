@@ -1,0 +1,7 @@
+{
+  "source": "flexonafft/biohub-lineage-forge-precision-tracking",
+  "download_date": "2026-09-09",
+  "source_sha256": "df7eacbb6936fc1767755c154a3047899d2641c1c69070c4d3dac83dca772db3",
+  "changes": "Original executable cells preserved; appended hash-verified official scorer audit.",
+  "validation": "Same eight diagnostic movies selected by public notebook; not independent detector OOF."
+}

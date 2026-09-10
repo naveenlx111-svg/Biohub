@@ -1,8 +1,25 @@
-# Roadmap to 0.95+
+# Roadmap to 0.97
 
-Current verified post-reset team anchor: **0.934**, submission `55931557` from `EXT0005` on 2026-09-01. The strongest reproducible public candidate is EXT0006 at a reported `0.936`; the team's private `0.935` notebook has identical executable code but is not promoted until its submission score is visible.
+September 10 update: **E0053 scored 0.946 public** (56127787), now the verified
+anchor. E0057 scored 0.944 (56128925), despite its higher 0.953756 local diagnostic.
+Do not promote feature blends solely on this small diagnostic panel. E0061/E0062
+version 1 failed because the allocated P100 is unsupported by the installed torch
+build; retries explicitly request `NvidiaTeslaT4`. User constraint for September 10:
+**Kaggle compute only; no local training, inference, or CPU experiments.**
 
-Current public leaderboard frontier as of 2026-09-01: first and second are `0.962`, third is `0.955`, fourth is `0.954`, and fifth/sixth are tied at `0.951`. A safe top-five target is therefore at least `0.952`, leaving a `0.018` gap from the verified team anchor. The threshold is time-dependent and must be rechecked before promoting a final submission.
+September 9 end-of-day target update (supersedes historical targets below): the user
+set **0.97 public leaderboard** as the final target. E0057 reached 0.953756 on the
+eight-movie official diagnostic panel and was submitted as 56128925; public evaluation
+remains pending. This is not yet a verified public 0.95 or 0.97 result. E0061/E0062
+extend the feature-blend comparison to 25% and 0% averaged primary features, with
+detector code and tight55 fixed. Resume from
+[the overnight checkpoint](results/FRONTIER_2026-09-09.md#overnight-checkpoint).
+
+Current verified post-reset team anchor: **0.941**, submission `56051745`, notebook `Biohub Cell Tracking v`, version 1, September 6. Verified against the authenticated submissions endpoint on September 9. The previously pending EXT0006 scored 0.936 (submission `55944277`); Kimi v19 subsequently scored 0.938 (`55976149`).
+
+Active September 9 work: E0053/E0054 reproduce the latest primary/secondary edge-feature TTA public notebooks on Kaggle. E0055 tests a confirmed duplicate-transform defect in their nominal eight-view TTA. Local official rescoring gives 0.943555 for Harmonic with tighter motion relinking, below its obsolete 0.951247 division proxy. See [the current audit](results/FRONTIER_2026-09-09.md) for evidence, provenance, and pending executions. The first target remains strictly greater than 0.95.
+
+Historical public leaderboard frontier as of 2026-09-01: first and second were `0.962`, third `0.955`, fourth `0.954`, and fifth/sixth tied at `0.951`. These rankings have not been refreshed in the September 9 audit; the user's current priority is exceeding 0.95, independently of rank.
 
 The strongest current research direction is division-parent recovery. E0034 measures a `0.972017` GT-aware local oracle ceiling on the former 0.933 configuration, while E0041/E0042 show that annotated-centroid division classifiers do not directly transfer to the dense detector-proposal domain. EXT0006 should first establish the `0.936` production base; structural experiments must then be rebased on its exact graph rather than treating public parameter renames as new methods.
 

@@ -1,0 +1,8 @@
+{
+  "parent": "E0053 source_selected tight55",
+  "primary_feature_tta_weight": 0.25,
+  "hypothesis": "Retain some native orientation features while averaging the remainder to improve association.",
+  "unchanged": "Detection logits and all spatial transforms; secondary model; graph parameters frozen to tight55.",
+  "validation": "Same eight diagnostic movies; official metric; compare pre-ILP detector hashes to E0053.",
+  "selection": "No proxy sweep. No claim of independently held-out detector training."
+}

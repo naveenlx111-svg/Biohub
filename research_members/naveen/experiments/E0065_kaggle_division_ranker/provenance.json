@@ -1,0 +1,8 @@
+{
+  "parent": "E0053 cached raw graphs; exact baseline counts asserted before training",
+  "method": "Frozen historical geometry gate, embryo-held-out geometry ranking and temporal crop CNN, offset pooling, topology repairs",
+  "gate_change": "Report coverage loss instead of abort; no threshold changed using held-out labels",
+  "evaluation": "Official graph score for predeclared top25/100/250/500; exploratory not independent confirmation",
+  "oracle": "GT-guided diagnostic only; original graphs remain separate",
+  "compute": "Kaggle only; no submission from this research notebook"
+}

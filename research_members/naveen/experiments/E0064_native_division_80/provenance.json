@@ -1,0 +1,10 @@
+{
+  "parent": "E0053 v1 / public 0.946 / frozen tight55",
+  "single_algorithm_change": {
+    "ILP_DIVISION_WEIGHT": 0.8
+  },
+  "hypothesis": "Allow high-confidence native forks suppressed by division cost 1.2 with appearance cost zero.",
+  "risk": "False forks and changed components may outweigh recovered divisions.",
+  "validation": "Pinned official aggregate and per-embryo metrics; eight diagnostic movies, not independent model validation.",
+  "compute": "Kaggle T4 only; no local experiment execution"
+}
