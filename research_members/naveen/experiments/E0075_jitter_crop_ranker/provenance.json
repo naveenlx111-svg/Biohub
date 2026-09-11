@@ -1,0 +1,7 @@
+{
+  "parent": "E0065",
+  "change": "Train-only common temporal-channel shift +/-2 z and +/-8 y/x voxels; edge padding",
+  "frozen": "Training examples and folds; CNN architecture; 25 epochs; optimizer; pair choices; 7-offset inference; repair cutoffs",
+  "hypothesis": "Improve robustness to off-centre detector proposals without using held-out event labels for augmentation",
+  "validation": "Official graph scores and per-embryo comparison; no leaderboard claim"
+}

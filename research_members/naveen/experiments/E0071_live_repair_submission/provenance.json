@@ -1,0 +1,6 @@
+{
+  "parent": "E0053 live inference plus E0067 frozen repairs",
+  "fix": "Never load cached test submission; discover actual test inputs; unsupported embryo identities retain live baseline",
+  "validation": "Kaggle public full run plus actual-input graph audit; hidden rerun remains unverified until submission",
+  "compute": "Kaggle T4 only"
+}

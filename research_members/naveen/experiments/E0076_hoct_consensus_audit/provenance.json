@@ -1,0 +1,14 @@
+{
+  "anchor": "naveenlx111249971939/biohub-lf-dctta-v020 version 1; submission 56159060 public 0.947",
+  "mechanism": "HOCT pretrained temporal edge consensus on frozen anchor nodes",
+  "source": "sjlee101/biohub-lf-hoctveto-div",
+  "configs": [
+    "anchor0947",
+    "veto_ordinary_only",
+    "veto_all",
+    "veto_division_only"
+  ],
+  "evaluation": "Patched official scorer, same cached anchor held-out graphs and selected postprocessing; exploratory repeated holdout, not LB",
+  "caveat": "Public HOCT validation bypasses its write_test_submission-only hook; this audit explicitly scores vetoed graphs",
+  "submission": false
+}

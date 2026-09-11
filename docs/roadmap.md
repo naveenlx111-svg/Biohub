@@ -1,5 +1,12 @@
 # Roadmap to 0.97
 
+September 11 update (supersedes older status and compute restrictions): verified
+anchor **0.947 public**, submission56159060 (`biohub-lf-dctta-v020` v1).
+E0071 live repair scored0.944; E0073/74/75 did not justify promotion.
+E0076 HOCT consensus audit is running on Kaggle T4 against the exact anchor.
+Local CPU/GPU permission was explicitly restored today. See
+[current checkpoint](results/CHECKPOINT_2026-09-11.md).
+
 September 10 update: **E0053 scored 0.946 public** (56127787), now the verified
 anchor. E0057 scored 0.944 (56128925), despite its higher 0.953756 local diagnostic.
 Do not promote feature blends solely on this small diagnostic panel. E0061/E0062
