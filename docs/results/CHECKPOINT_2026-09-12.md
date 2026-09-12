@@ -95,3 +95,32 @@ it is not a different tracking model. No350-epoch weights are used in E0079.
 
 No new local training or inference was launched today. Local activity is limited
 to notebook construction, result inspection, and small topology unit tests.
+
+## Later continuation: local CPU experiment E0080
+
+User explicitly offered local resources again on September12. This supersedes
+the older Kaggle-only wording carried in the active goal. Local CPU graph scoring
+is now used alongside the existing Kaggle jobs; no duplicate GPU run was started.
+The preceding user-question turn only verified resource availability, not an
+experiment result. This continuation completed new experimental work.
+
+E0080 (`tools/audit_hoct_temporal_guards.py`) completed locally with two-thread
+limits. It applies the pre-existing E0069 three-step persistence and0um/2um
+separation-gain guards to HOCT fork proposals. All variants are constructed before
+GT loading; no threshold was selected from annotated event identities. Exact
+per-movie E0078 ordinary-veto and unguarded-fork count replay passed.
+
+| Policy | Official diagnostic | Division TP / FP / FN |
+| --- | ---: | --- |
+| Ordinary veto reference | 0.944912830 | 2 / 1 / 10 |
+| Unguarded HOCT forks | 0.937862433 | 4 / 26 / 8 |
+| Three-step persistence | 0.938581934 | 4 / 22 / 8 |
+| Persistence plus nonconvergence | 0.941367470 | 4 / 17 / 8 |
+| Persistence plus2um separation gain | 0.947138656 | 4 / 10 / 8 |
+
+The strongest guard retains two added true detections but still adds nine false
+divisions versus ordinary veto. Embryo44b6 drops0.935042014→0.927561238;
+6bba rises0.947106899→0.954458929. **Not promoted**, despite aggregate gain.
+No claim of public0.95 follows from this repeatedly reused diagnostic.
+Outputs: `local_runs/E0080/{summary.json,samples.csv,fork_features.csv}`.
+E0077 and E0079 were independently checked RUNNING during this continuation.
