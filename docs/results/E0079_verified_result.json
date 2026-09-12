@@ -1,0 +1,17 @@
+{
+  "kernel": "naveenlx111249971939/biohub-e0079-strong-edge-audit",
+  "version": 1,
+  "status": "COMPLETE",
+  "metric": "patched official diagnostic; reused eight-movie panel; not public leaderboard",
+  "reference_replay": "Exact anchor per-sample edge and division counts asserted successfully",
+  "anchor": 0.9434021062935234,
+  "strong055": 0.9710366626005147,
+  "strong080": 0.9662959857326862,
+  "strong095": 0.9438997282371343,
+  "strong055_adjusted_edge_jaccard": 0.9402674318312839,
+  "strong055_divisions": {"tp": 4, "fp": 1, "fn": 8},
+  "strong055_embryo44b6": 0.9641197234044373,
+  "strong055_embryo6bba": 0.9709165619942426,
+  "compute": "Kaggle T4; 3122.6 seconds to completion marker",
+  "next": "E0081 live candidate and E0082 eight additional movies; no achieved-public-target claim"
+}

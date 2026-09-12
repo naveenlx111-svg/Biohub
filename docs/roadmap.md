@@ -1,5 +1,12 @@
 # Roadmap to 0.97
 
+Latest September12: **strong-edge preservation scored0.971037 on the diagnostic
+panel**, improving both embryos; public best remains0.947. E0081 live candidate
+and E0082 additional-movie validation are RUNNING on Kaggle T4. E0077 HOCT candidate
+was submitted after its graph audit passed. All next experiment compute is
+Kaggle-only per the user's latest instruction. See the
+[latest findings](results/CHECKPOINT_2026-09-12.md).
+
 September12 update: **0.947 public remains best; 0.95 not yet achieved**.
 E0076 ordinary-edge HOCT veto improved the official diagnostic by0.001511,
 without recovering divisions. E0077 live candidate and E0078 fork-fusion audit

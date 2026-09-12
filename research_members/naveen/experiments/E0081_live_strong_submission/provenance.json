@@ -1,0 +1,8 @@
+{
+  "parent": "0.947 public anchor and E0079 preserve_strong055",
+  "evidence": "E0079 diagnostic 0.943402106 to 0.971036663; both embryos improve; division4TP1FP8FN",
+  "change": "Freeze strong-edge preservation threshold0.55 and tight55; original anchor weights and inference",
+  "compute": "Kaggle T4 only",
+  "purpose": "Live actual-test inference; no cached test CSV or GT-based production selection",
+  "public_score": "Unverified; diagnostic0.971 is not a public0.97 result"
+}

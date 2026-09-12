@@ -1,5 +1,55 @@
 # September 12: completed-run review and next experiments
 
+## Latest: E0079 strong-edge result and E0081/E0082 launch
+
+User now requests **all next experiment compute on Kaggle only**, superseding the
+earlier local-resource permission. No local experiment was run for this batch.
+Both E0077 and E0079 were verified COMPLETE and their output files downloaded.
+
+E0079 exact official anchor replay passed. Results on the reused eight movies:
+
+| Policy | Official diagnostic | Division TP / FP / FN |
+| --- | ---: | --- |
+| Anchor | 0.943402106 | 2 / 1 / 10 |
+| Preserve learned edges ≥0.55 | **0.971036663** | 4 / 1 / 8 |
+| Preserve learned edges ≥0.80 | 0.966295986 | 4 / 1 / 8 |
+| Preserve learned edges ≥0.95 | 0.943899728 | 2 / 2 / 10 |
+
+Threshold0.55 improves44b6 from0.935115320 to0.964119723 and6bba from
+0.945031506 to0.970916562. Adjusted edge Jaccard rises0.928017491→0.940267432;
+thus the gain includes better ordinary links as well as two recovered divisions.
+This remains a diagnostic result and does **not** establish the public0.97 target.
+Log completion marker occurred at3122.6seconds.
+
+**E0081 v1 RUNNING on Kaggle T4:** actual-test inference from the same anchor
+weights, tight55, and exactly the evaluated strong055 filter. Final Kaggle graph
+audit checks schema, actual datasets, coordinates, consecutive edges and degrees.
+No cached test predictions or annotation-based production selection.
+
+**E0082 v1 RUNNING on Kaggle T4:** generate eight additional training-movie graphs
+with unchanged detector weights, then compare original anchor postprocessing and
+frozen strong055. Select four per embryo by fixed SHA256 ordering; exclude the
+original eight and actual test identities; never inspect GT contents for selection.
+No threshold sweep. Model-training overlap is unresolved, so this is an expanded
+diagnostic rather than independently held-out model validation.
+
+**E0077 v1 submitted:** Kaggle graph audit valid; downloaded SHA256 matches
+`0b4ad843bd126cb0661f021397d7eeee8d17a1002d24c8d397fb8c0dff87bdcf`.
+384 ordinary edges removed;122808 nodes and124 divisions preserved;118164 final
+edges. CLI submission accepted and reported four submissions remaining today.
+Public score pending; verified production baseline remains submission56159060
+at0.947. This submission tests the earlier modest HOCT gain while E0081 runs.
+Submission reference: **56190840**, confirmed PENDING at18:05:39 UTC September12.
+
+User requested resuming tomorrow morning. Leave E0081/E0082 running and check
+their outputs and submission56190840 first on resumption. Do not launch more
+experiments during the pause. If E0081 completes, inspect its graph audit before
+submitting the strong055 candidate under the user's existing authorization.
+
+Builder: `tools/build_strong_edge_followups.py`; canonical notebooks/provenance
+under `research_members/naveen/experiments/E0081_live_strong_submission/` and
+`E0082_expanded_strong_audit/`. Full E0079 evidence under `local_runs/E0079/kaggle`.
+
 Verified public best remains **0.947**, submission56159060 (anchor notebook v1).
 The latest submission56159779 scored **0.944**. Neither 0.95 nor the final 0.97
 goal has been achieved. September11 turn made progress: E0076 was built, launched,
