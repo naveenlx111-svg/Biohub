@@ -57,6 +57,17 @@ must have one daughter already agreed by both graphs; existing divisions cannot
 be stolen from. Labels are used only by the evaluator. Exact per-movie metric
 replay of anchor and ordinary veto is mandatory before interpreting variants.
 
+Update: E0078 completed during this turn (~904seconds). Exact anchor and veto
+per-movie count replay passed. Full HOCT scored0.938099375; orphan-only and
+ordinary-reparent fork fusion both scored0.937862433. All three recovered
+4 divisionTP but produced26FP (8FN), versus ordinary veto2TP/1FP/10FN.
+Two additional true divisions on6bba are outweighed by false divisions.
+**Reject these raw fork policies; no submission.** Keep E0077's division-protected
+ordinary veto unchanged. The HOCT fork signal may be useful only if an independent
+precision filter can reject false events without choosing cases from GT labels.
+Full evidence: `local_runs/E0078/kaggle/fusion_official_summary.json`,
+`fusion_official_samples.csv`, `fusion_edits.csv`, and log completion marker.
+
 ## Next decisions
 
 **E0079 v1 also launched on Kaggle T4:** isolate strong learned-edge preservation
