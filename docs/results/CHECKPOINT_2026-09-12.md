@@ -124,3 +124,23 @@ divisions versus ordinary veto. Embryo44b6 drops0.935042014→0.927561238;
 No claim of public0.95 follows from this repeatedly reused diagnostic.
 Outputs: `local_runs/E0080/{summary.json,samples.csv,fork_features.csv}`.
 E0077 and E0079 were independently checked RUNNING during this continuation.
+
+## Checkpoint provenance follow-up
+
+Downloaded the350-epoch snapshot's manifest and README from Kaggle. The dataset
+declares CC0-1.0 and pins its weights to SHA256
+`dfb848aa8e490bba8eda91ac927b9ad1d8b06296487ba8504e45a1037c5e36ec`,
+copied from original support-pack version9. The current locally mounted support
+manifest labels the anchor artifact `biohub-tracking-support-pack-400ep-snapshot-v1`
+and records anchor SHA256
+`12f6881ee3620a831697ca098ff8f48e687a24225f4e048b538deec3562fe771`.
+Thus350epoch is an older-checkpoint ablation, not a longer-trained upgrade over
+our anchor. Neither inspected manifest establishes an independent validation
+split. Do not claim unseen-model validation from a newly selected movie panel.
+Evidence: `local_runs/frontier_20260912/weights350/{ARTIFACT_MANIFEST.json,README.md}`
+and mounted support-pack `ARTIFACT_MANIFEST.json`.
+
+E0077/E0079 remain existing live jobs, not stalled jobs inferred from missing
+output files. Output retrieval while RUNNING returned no final artifacts. The
+prior E0080 turn was progress; this follow-up is a verified wait plus provenance
+evidence. No duplicate model run was launched.
