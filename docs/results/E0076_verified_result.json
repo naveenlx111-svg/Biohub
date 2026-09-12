@@ -1,0 +1,19 @@
+{
+  "kernel": "naveenlx111249971939/biohub-e0076-hoct-consensus-audit",
+  "version": 1,
+  "status_rechecked": "COMPLETE on 2026-09-12",
+  "metric": "patched official diagnostic; not public leaderboard",
+  "samples": 8,
+  "anchor_public_submission": 56159060,
+  "anchor_public_score": 0.947,
+  "anchor_diagnostic": 0.9434021062935234,
+  "ordinary_veto_diagnostic": 0.9449128304459917,
+  "all_edge_veto_diagnostic": 0.9449128304459917,
+  "division_only_veto_diagnostic": 0.9434021062935234,
+  "ordinary_veto_adjusted_edge_jaccard": 0.9295282150613764,
+  "division_counts_all_configs": {"tp": 2, "fp": 1, "fn": 10},
+  "embryo_44b6": {"anchor": 0.9351153197814858, "ordinary_veto": 0.9350420137607541},
+  "embryo_6bba": {"anchor": 0.9450315056946966, "ordinary_veto": 0.9471068991068702},
+  "caveat": "Repeatedly reused small diagnostic; one embryo regresses slightly; no evidence of public 0.95 yet",
+  "full_evidence": "local_runs/E0076/kaggle/hoct_official_summary.json and hoct_official_samples.csv; original outputs retained by Kaggle"
+}

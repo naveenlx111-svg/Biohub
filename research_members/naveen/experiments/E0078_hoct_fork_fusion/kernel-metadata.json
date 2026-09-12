@@ -1,0 +1,29 @@
+{
+  "id": "naveenlx111249971939/biohub-e0078-hoct-fork-fusion",
+  "title": "Biohub E0078 HOCT Fork Fusion",
+  "code_file": "biohub-e0078-hoct-fork-fusion.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [
+    "gpu"
+  ],
+  "dataset_sources": [
+    "dalloliogm/biohub-official-scorer-patched",
+    "musculer/biohub-hoct-general-v0-official",
+    "pilkwang/biohub-deepcenter-unet3d-center-prior-v1",
+    "pilkwang/biohub-temporal-unet3d-seed314159-v1",
+    "pilkwang/biohub-tracking-support-pack-50ep-v1",
+    "sjlee101/biohub-hoct-020-wheels"
+  ],
+  "kernel_sources": [
+    "naveenlx111249971939/biohub-e0076-hoct-consensus-audit"
+  ],
+  "competition_sources": [
+    "biohub-cell-tracking-during-development"
+  ],
+  "model_sources": []
+}

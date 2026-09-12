@@ -1,0 +1,14 @@
+{
+  "parent": "E0076 cached final anchor nodes and independent HOCT edges",
+  "configs": [
+    "anchor0947",
+    "ordinary_veto",
+    "hoct_full_graph",
+    "veto_orphan_forks",
+    "veto_reparent_forks"
+  ],
+  "checks": "Exact official anchor and veto per-sample count replay; same node set; one parent and at most two children",
+  "mechanism": "Use HOCT-selected divisions; require one existing agreed daughter; either orphan-only or reparent an ordinary incoming link",
+  "compute": "Kaggle CPU cached graph scoring; no new local inference",
+  "caveat": "Reused eight-movie diagnostic; not independent CV or leaderboard; no submission"
+}

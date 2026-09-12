@@ -1,0 +1,8 @@
+{
+  "parent": "0.947 public anchor submission56159060; tight55 frozen",
+  "change": "HOCT ordinary-edge consensus veto only; protect all existing division edges",
+  "evidence": "E0076 official reused holdout 0.943402106 to 0.944912830; embryo44b6 -0.000073306 and embryo6bba +0.002075393",
+  "risk": "Small aggregate gain with minor one-embryo regression; public improvement unproven; baseline preserved",
+  "production": "Actual mounted test inference; no cached test outputs; no GT-dependent decisions; GPU Kaggle T4",
+  "submission": "Candidate only; require successful run and graph audit before submitting"
+}

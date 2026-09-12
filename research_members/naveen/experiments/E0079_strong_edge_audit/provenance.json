@@ -1,0 +1,8 @@
+{
+  "source": "tharunkumar369/biohub-cell-tracking-lineage-submission; filter_output_graph only",
+  "isolated_change": "Preserve strong learned edges before geometric relinking; threshold .55 from public source plus predeclared .80/.95 sensitivity checks",
+  "frozen": "Exact anchor checkpoint/detections/raw graph/tight55/DeepCenter; NO 350epoch checkpoint change",
+  "motivation": "Current motion relinking replaces ILP edges; changing ILP division cost alone did not recover divisions",
+  "caveat": "Reused diagnostic; no claim of public 0.95; graph/node postprocessing can change as a downstream consequence",
+  "compute": "Kaggle T4 cached graph audit; exact official anchor replay required"
+}

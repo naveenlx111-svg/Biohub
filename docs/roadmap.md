@@ -1,5 +1,11 @@
 # Roadmap to 0.97
 
+September12 update: **0.947 public remains best; 0.95 not yet achieved**.
+E0076 ordinary-edge HOCT veto improved the official diagnostic by0.001511,
+without recovering divisions. E0077 live candidate and E0078 fork-fusion audit
+are running; E0079 isolates strong learned-edge preservation before motion
+relinking. See [completed-run review and next decisions](results/CHECKPOINT_2026-09-12.md).
+
 September 11 update (supersedes older status and compute restrictions): verified
 anchor **0.947 public**, submission56159060 (`biohub-lf-dctta-v020` v1).
 E0071 live repair scored0.944; E0073/74/75 did not justify promotion.
