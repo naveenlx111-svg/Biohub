@@ -1,5 +1,14 @@
 # September 13: overnight results and Adaptive Temporal Accord review
 
+## Investigation update
+
+Confirmed secondary-checkpoint training overlap for **all 16 diagnostic movies**,
+including E0082's additional eight. The scorer matches current official source.
+E0085 CSV export-parity audit is running on Kaggle CPU. See
+[validation mismatch investigation](VALIDATION_MISMATCH_2026-09-13.md).
+This supersedes the unresolved-overlap statements below; exact attribution of
+the public regression remains unproven.
+
 ## Final public result for this batch
 
 E0081 submission **56199686 completed at0.946**, with empty error_description,

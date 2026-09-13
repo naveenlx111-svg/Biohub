@@ -1,5 +1,12 @@
 # Roadmap to 0.97
 
+Validation investigation: **all 16 diagnostic movies were in the secondary
+model's training manifest**, tied to E0081 by checkpoint and manifest hashes.
+They are not independent held-out evaluation. The scorer matches current
+official source; E0085 is RUNNING on Kaggle CPU to measure integer CSV export
+effects. See [evidence and corrective direction](results/VALIDATION_MISMATCH_2026-09-13.md).
+Do not promote another candidate solely on these in-sample diagnostic gains.
+
 Latest verified outcome: **E0081 scored0.946 public**, as did E0077. Neither
 improves the0.947 production anchor. Gains on both diagnostic panels failed to
 transfer publicly; review validation reliability before using that ranking to

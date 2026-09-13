@@ -1,0 +1,12 @@
+{
+  "purpose": "Investigate float-validation versus integer-production CSV parity",
+  "panels": 16,
+  "policies": [
+    "anchor0947",
+    "preserve_strong055"
+  ],
+  "scorer_commit": "075fc5f5a52d11077f9dc2b074644618f26939e2",
+  "csv_reader": "Official scripts/csv_to_geffs.py build_graph_from_rows",
+  "controls": "Exact original float metrics replay before interpreting CSV effect; frozen topology",
+  "compute": "Kaggle CPU only; no submission or production changes"
+}
