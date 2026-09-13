@@ -1,5 +1,13 @@
 # September 13: overnight results and Adaptive Temporal Accord review
 
+Latest public result: E0077 submission56190840 is **COMPLETE, 0.946**, with empty
+error_description, independently verified after the user's update. Reject the
+ordinary-link HOCT veto: its small diagnostic gain did not transfer publicly.
+Production best remains0.947 (56159060). E0081 submission56199686 remains
+PENDING with empty error_description. E0081 preserves strong learned links and
+does not include E0077's HOCT veto; its public result is still unresolved.
+The pending-status notes below describe the earlier check.
+
 Latest compute instruction remains **Kaggle only**. Both E0081 and E0082 were
 verified COMPLETE, and results/logs downloaded. No local experiment was run.
 
