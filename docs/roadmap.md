@@ -1,5 +1,11 @@
 # Roadmap to 0.97
 
+September13: E0081 completed and was submitted after graph audit. E0082's additional
+eight movies improve **0.885766→0.925727**, with gains on both embryos. The user's
+Adaptive Temporal Accord notebook has the same prediction code as E0081.
+Public best remains0.947 while submissions are pending. See
+[overnight results](results/CHECKPOINT_2026-09-13.md). Compute remains Kaggle only.
+
 Latest September12: **strong-edge preservation scored0.971037 on the diagnostic
 panel**, improving both embryos; public best remains0.947. E0081 live candidate
 and E0082 additional-movie validation are RUNNING on Kaggle T4. E0077 HOCT candidate
