@@ -61,3 +61,34 @@ download retained under `local_runs/frontier_20260913/adaptive_accord/`.
 
 Next: check E0081's public outcome and E0077 pending status. Keep verified0.947
 baseline and final0.97 target. Any new experiments must run on Kaggle.
+
+## Next batch requested after E0077 public regression
+
+E0081 submission56199686 was rechecked PENDING with empty error_description.
+E0077 remains rejected at0.946; no verified improvement beyond0.947 yet.
+
+**E0083 v1 launched on Kaggle T4:** current strong055 processing runs full motion
+assignment then drops links whose endpoints conflict with locked learned links.
+This can discard a valid alternative match. The new variant removes occupied
+sources and targets before assignment and uses the actual locked predecessor
+positions for velocity prediction. Compare original anchor, existing strong055,
+and this constrained variant on all16cached graphs. Exact per-movie official
+anchor and strong055 replay is required. Both panel and embryo scores are saved.
+A tiny synthetic topology test verified the intended difference: full matching
+chooses two links that both conflict with a locked edge; constrained matching
+recovers the remaining valid free-to-free link. No local model experiment run.
+
+**E0084 v1 launched on Kaggle T4:** change only the primary checkpoint from400epoch
+to the hash-pinned public350epoch snapshot. Freeze original strong055 processing,
+secondary model/blend, TTA and other thresholds. Generate predictions for the same
+16movies, then compare with cached400epoch official results separately by panel
+and embryo. This is an older-checkpoint ablation, not a claimed model upgrade.
+No E0083 residual-matching change is included in E0084.
+
+Canonical notebook folders: `E0083_residual_matching` and
+`E0084_checkpoint350_comparison` under `research_members/naveen/experiments`.
+Builder: `tools/build_residual_and_checkpoint_experiments.py`.
+Expected key outputs: E0083 `residual_summary.json`/`residual_samples.csv`;
+E0084 `checkpoint_comparison_summary.json`/`checkpoint_comparison_samples.csv`.
+Neither diagnostic notebook makes a submission. Public promotion requires an
+audited live candidate and an actual higher public score.

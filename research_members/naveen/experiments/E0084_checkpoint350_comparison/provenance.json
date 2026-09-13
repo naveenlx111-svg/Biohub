@@ -1,0 +1,7 @@
+{
+  "hypothesis": "Compare older350epoch checkpoint against400epoch under identical strong055 processing",
+  "frozen": "Secondary weights and blend, TTA, thresholds and strong055 postprocessing; no residual-matching change",
+  "weights_sha256": "dfb848aa8e490bba8eda91ac927b9ad1d8b06296487ba8504e45a1037c5e36ec",
+  "evaluation": "Same16movies; compare checkpoint400 cached official results; panel and embryo reporting; training overlap unresolved",
+  "compute": "Kaggle T4 only; no submission from diagnostic notebook"
+}

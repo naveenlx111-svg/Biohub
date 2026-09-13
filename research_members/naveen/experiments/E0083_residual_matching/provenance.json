@@ -1,0 +1,6 @@
+{
+  "hypothesis": "Run Hungarian motion matching only on endpoints not occupied by locked learned edges; use locked predecessor positions for velocity",
+  "frozen": "400epoch anchor weights/detections; strong055; tight55; other postprocessing",
+  "evaluation": "Exact original and strong055 metric replay on both existing panels; 16 movies; official per-panel and embryo summaries",
+  "compute": "Kaggle T4 only; no submission from diagnostic notebook"
+}
