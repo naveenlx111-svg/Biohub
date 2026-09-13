@@ -92,3 +92,31 @@ Expected key outputs: E0083 `residual_summary.json`/`residual_samples.csv`;
 E0084 `checkpoint_comparison_summary.json`/`checkpoint_comparison_samples.csv`.
 Neither diagnostic notebook makes a submission. Public promotion requires an
 audited live candidate and an actual higher public score.
+
+## E0083 and E0084 completed results
+
+Both Kaggle status endpoints report COMPLETE. Downloaded summaries/samples and
+logs contain E0083_COMPLETE at4444.5seconds and E0084_COMPARISON_COMPLETE
+at4977.7seconds. E0083's exact per-movie anchor and existing strong055 metric
+assertions passed before accepting the comparison.
+
+| Policy | Original8 | Additional8 | All16 official diagnostic |
+| --- | ---: | ---: | ---: |
+| Existing400epoch strong055 (E0081 policy) | 0.971036663 | 0.925727091 | **0.952195985** |
+| E0083 residual matching | 0.964635553 | 0.924288004 | 0.948278904 |
+| E0084 checkpoint350 strong055 | 0.964949142 | 0.923475609 | 0.948971776 |
+
+E0083 slightly improves pooled adjusted edge accuracy0.931362651→0.931612237,
+but loses one true division (5TP3FP16FN→4TP3FP17FN); reject.
+E0084 gains one true division (6TP3FP15FN), but pooled adjusted edge accuracy
+falls to0.923971776; reject as a whole-model replacement. Both configurations
+lose on both panels relative to the existing strong055 policy. No new submission.
+The all16score is recomputed from the official aggregate, not the arithmetic
+average of the two panel scores. None of these numbers is a public score.
+
+E0081 submission56199686 remains PENDING with empty error_description at this
+check. Public best remains0.947. A potential next study is whether the older
+checkpoint's division proposals provide useful complementary evidence while
+retaining400epoch ordinary links; this has not been implemented or launched.
+Full evidence: `local_runs/E0083/kaggle/residual_{summary.json,samples.csv}` and
+`local_runs/E0084/kaggle/checkpoint_comparison_{summary.json,samples.csv}`.
