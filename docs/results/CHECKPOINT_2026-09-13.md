@@ -1,5 +1,26 @@
 # September 13: overnight results and Adaptive Temporal Accord review
 
+## Final public result for this batch
+
+E0081 submission **56199686 completed at0.946**, with empty error_description,
+independently confirmed through the Kaggle API after the user's completion update.
+**Reject strong055 as a production replacement.** E0077 also scored0.946.
+Verified best remains **0.947**, submission56159060. No0.95 or0.97 public result.
+The earlier PENDING notes below are historical and superseded by this result.
+
+Strong055 improved the original diagnostic0.943402→0.971037 and the additional
+diagnostic0.885766→0.925727, yet lost publicly. Improvements on these two panels
+are therefore insufficient promotion evidence. E0083/E0084 remain weaker
+diagnostic variants; their comparison against strong055 does not establish
+superiority to the verified public anchor. No further submission is justified
+solely by the existing diagnostic ranking.
+
+Next investigation should establish validation reliability: checkpoint training
+split overlap, exact competition-scoring parity (including exported integer
+coordinates), and representativeness of the diagnostic movies. These are
+unresolved hypotheses, not established explanations for the public regression.
+Do not infer that the0.97 target was reached from the original diagnostic score.
+
 Latest public result: E0077 submission56190840 is **COMPLETE, 0.946**, with empty
 error_description, independently verified after the user's update. Reject the
 ordinary-link HOCT veto: its small diagnostic gain did not transfer publicly.

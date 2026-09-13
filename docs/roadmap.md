@@ -1,5 +1,11 @@
 # Roadmap to 0.97
 
+Latest verified outcome: **E0081 scored0.946 public**, as did E0077. Neither
+improves the0.947 production anchor. Gains on both diagnostic panels failed to
+transfer publicly; review validation reliability before using that ranking to
+promote another candidate. E0083/E0084 also completed and are weaker diagnostic
+variants. The pending-status updates below are historical.
+
 September13: E0081 completed and was submitted after graph audit. E0082's additional
 eight movies improve **0.885766→0.925727**, with gains on both embryos. The user's
 Adaptive Temporal Accord notebook has the same prediction code as E0081.
