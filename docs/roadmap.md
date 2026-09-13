@@ -3,8 +3,11 @@
 Validation investigation: **all 16 diagnostic movies were in the secondary
 model's training manifest**, tied to E0081 by checkpoint and manifest hashes.
 They are not independent held-out evaluation. The scorer matches current
-official source; E0085 is RUNNING on Kaggle CPU to measure integer CSV export
-effects. See [evidence and corrective direction](results/VALIDATION_MISMATCH_2026-09-13.md).
+official source; E0085 completed all64 evaluations on Kaggle CPU. Integer CSV
+export lowers pooled strong055 from0.952196 to0.950892 but does not reverse the
+diagnostic ranking; division counts are unchanged. It therefore does not
+reproduce the public reversal on these movies. See
+[evidence and corrective direction](results/VALIDATION_MISMATCH_2026-09-13.md).
 Do not promote another candidate solely on these in-sample diagnostic gains.
 
 Latest verified outcome: **E0081 scored0.946 public**, as did E0077. Neither

@@ -4,7 +4,10 @@
 
 Confirmed secondary-checkpoint training overlap for **all 16 diagnostic movies**,
 including E0082's additional eight. The scorer matches current official source.
-E0085 CSV export-parity audit is running on Kaggle CPU. See
+E0085 CSV export-parity audit completed all64 evaluations on Kaggle CPU:
+strong055 pooled0.952196→0.950892; anchor0.920779→0.920472. Division totals and
+panel rankings are unchanged, so rounding does not reproduce the public reversal
+on these movies. These are still in-sample diagnostics, not public scores. See
 [validation mismatch investigation](VALIDATION_MISMATCH_2026-09-13.md).
 This supersedes the unresolved-overlap statements below; exact attribution of
 the public regression remains unproven.

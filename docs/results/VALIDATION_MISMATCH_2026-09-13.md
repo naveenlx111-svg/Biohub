@@ -55,14 +55,14 @@ The diagnostic uses the same 7 micrometre matching threshold and summary
 implementation. This rules out a stale scorer relative to the public official
 source, not undisclosed differences in Kaggle's private server environment.
 
-## E0085: production CSV parity audit — RUNNING
+## E0085: production CSV parity audit — COMPLETE
 
 Existing diagnostics score floating-point coordinates. Production CSV writing
 rounds each spatial coordinate to an integer and clamps it below at zero.
-Whether this changes the ranking or materially changes scores is **pending**.
+The completed audit shows small score changes but **no panel-ranking reversal**.
 
 [Kaggle E0085](https://www.kaggle.com/code/naveenlx111249971939/biohub-e0085-export-parity-audit)
-version 1 runs on Kaggle CPU only. No local model experiment, production change,
+version 1 completed on Kaggle CPU only. No local model experiment, production change,
 or submission was made for this investigation.
 
 Controls:
@@ -77,8 +77,31 @@ Controls:
    plus coordinate displacement statistics. Expect 64 evaluations and
    `E0085_COMPLETE` before treating the summary as final.
 
-Expected outputs: `export_parity_samples.csv`, `export_coordinate_changes.csv`,
-and `export_parity_summary.json`. Builder:
+Downloaded outputs: `export_parity_samples.csv`, `export_coordinate_changes.csv`,
+and `export_parity_summary.json`, retained under `local_runs/E0085/kaggle`.
+Verified 64 unique sample/config/representation evaluations, 32 coordinate
+reports, and 12 panel summaries. All exact float replay assertions passed;
+the log prints `E0085_COMPLETE` at 805.114 seconds (13.42 minutes).
+
+| Panel | Policy | Float diagnostic | Production CSV diagnostic | Change |
+| --- | --- | ---: | ---: | ---: |
+| Original eight | Anchor | 0.943402106 | 0.944067207 | +0.000665101 |
+| Original eight | Strong055 | 0.971036663 | 0.970906934 | -0.000129729 |
+| Additional eight | Anchor | 0.885766175 | 0.883898681 | -0.001867494 |
+| Additional eight | Strong055 | 0.925727091 | 0.922500465 | -0.003226626 |
+| Pooled sixteen | Anchor | 0.920779306 | 0.920472316 | -0.000306990 |
+| Pooled sixteen | Strong055 | 0.952195985 | 0.950891971 | -0.001304014 |
+
+Division TP/FP/FN totals are unchanged for each policy on both panels and pooled:
+anchor 3/4/18 versus strong055 5/3/16 across sixteen movies. Maximum observed
+coordinate displacement is 1.099796777 micrometres. Rounding affects node matches
+and ordinary-edge scoring, but strong055 still ranks above the anchor on each
+panel. Thus integer export does **not reproduce the public ranking reversal on
+these diagnostic movies**. This does not measure the rounding effect on hidden
+public ground truth, and does not establish training overlap as the sole cause.
+The pooled CSV score 0.950892 remains in-sample, not a new public 0.95 result.
+
+Builder:
 `tools/build_export_parity_audit.py`; committed notebook contains the copied
 official graph-conversion function. Rebuilding requires the official source
 checkout under ignored `local_runs/metric_review_20260913` at the pinned commit.
@@ -89,7 +112,8 @@ checkout under ignored `local_runs/metric_review_20260913` at the pinned commit.
 - Treat previous panels as in-sample diagnostics, useful for mechanics but not
   sufficient promotion evidence. More movies from the same all-train manifest
   will not repair independence.
-- Finish export-parity measurement before proposing serializer changes.
+- Export parity is measured. Do not change production serialization based on
+  these results; use exported-and-reloaded graphs for future scoring parity.
 - A clean validation design needs verified held-out membership for **every**
   trained component (primary, secondary, DeepCenter, and any repair model).
   If suitable weights do not exist, this requires retraining with fixed held-out
