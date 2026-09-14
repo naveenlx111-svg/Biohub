@@ -1,5 +1,13 @@
 # Roadmap to 0.97
 
+September14 provenance follow-up: no verified strict held-out replacement found
+among inspected public weights. Fold0 provides a disjoint split but only a
+holdout-selected best checkpoint; its entire holdout overlaps DeepCenter train.
+Seed271828 pilot is also all-train. Proposed next step is a bounded Kaggle
+from-scratch twofold training pilot with fixed-epoch checkpoints and no all-train
+auxiliaries; **not launched during diagnosis**. See
+[checkpoint investigation and staged plan](results/HELDOUT_PROVENANCE_2026-09-14.md).
+
 Validation investigation: **all 16 diagnostic movies were in the secondary
 model's training manifest**, tied to E0081 by checkpoint and manifest hashes.
 They are not independent held-out evaluation. The scorer matches current

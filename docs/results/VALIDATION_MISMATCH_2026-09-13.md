@@ -38,7 +38,11 @@ movies (6bba); four movies in each diagnostic panel overlap its listed training
 set. The primary checkpoint metadata exposes epoch 402 and best score
 0.9834918738001537, but no training membership list. That stored training score
 does not establish held-out performance or leaderboard performance. Primary
-training membership remains unresolved.
+training membership remains unresolved at the hash-linked manifest level.
+September14 follow-up found the original author's explicit description of
+UNET400 as all-train, and audited alternative public checkpoints. See
+[held-out provenance investigation](HELDOUT_PROVENANCE_2026-09-14.md) for the
+evidence distinction and proposed fresh-training plan.
 
 ## Official metric check
 
